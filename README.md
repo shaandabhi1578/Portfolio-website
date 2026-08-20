@@ -1,6 +1,17 @@
 # ⚡ Shaan Dabhi — Portfolio & Interactive Developer Showcase
 
+[![Live Portfolio](https://img.shields.io/badge/🌐_Live_Website-shaandabhi.netlify.app-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://shaandabhi.netlify.app)
+[![React 19](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![Vite 8](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![WebGL](https://img.shields.io/badge/WebGL-3D_Visualizers-990000?style=for-the-badge&logo=opengl&logoColor=white)](https://shaandabhi.netlify.app)
+
 > **Computer Engineering Student @ CHARUSAT DEPSTAR** | Building Efficient Software, Algorithms & Web Interfaces in C++, Java & JavaScript
+
+---
+
+## 🌐 Live Website
+
+🔗 **Experience the live portfolio:** [**https://shaandabhi.netlify.app**](https://shaandabhi.netlify.app)
 
 ---
 
@@ -8,9 +19,11 @@
 
 Welcome to the repository for **Shaan Dabhi's Personal Developer Portfolio**. This website is an interactive, high-performance web experience featuring WebGL-powered 3D background visualizers, embedded interactive application playgrounds (such as the **Music Scale Detector** & **DSA Visualizer**), a full-featured interactive CLI terminal, and a glassmorphism design system.
 
+- **Live Site:** [shaandabhi.netlify.app](https://shaandabhi.netlify.app)
 - **Portfolio Owner:** Shaan Dabhi
 - **University:** CHARUSAT — DEPSTAR (B.Tech, Computer Engineering)
 - **Primary Stack:** C++, Data Structures & Algorithms, Java, HTML5/CSS3, JavaScript, React 19, WebGL
+
 
 ---
 
@@ -138,11 +151,13 @@ In the project directory, you can run:
 
 ## 📬 Contact & Connect
 
+- **Website:** [https://shaandabhi.netlify.app](https://shaandabhi.netlify.app)
 - **GitHub:** [@shaandabhi1578](https://github.com/shaandabhi1578)
 - **LinkedIn:** [Shaan Dabhi](https://linkedin.com/in/shaan-dabhi)
 - **Email:** [shaandabhi@gmail.com](mailto:shaandabhi@gmail.com)
 - **Phone:** +91 9408487768
 - **Location:** Gujarat, India
+
 
 ---
 
