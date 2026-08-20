@@ -66,7 +66,7 @@ void main() {
   mat2 warp = mat2(cos(rot - sin(time / 5.0)), sin(rot), -sin(cosRot - time), cosRot) * uFold;
   float glowCore = uGlow * uCoreSize;
 
-  for (float n = 0.0; n < 8.0; n++) {
+  for (float n = 0.0; n < 4.0; n++) {
     if (n >= uDetail) break;
     p *= warp;
     float t = r - time / (n + 3.0);
@@ -74,7 +74,7 @@ void main() {
     c += glowCore / length(vec2(sin(i.x + t), cos(i.y + t)));
   }
 
-  c /= 6.0;
+  c /= 4.0;
 
   float intensity = max(c - uBlackPoint, 0.0) * uBrightness;
 
@@ -134,7 +134,7 @@ const MoltenMetal = ({
       alpha: true,
       premultipliedAlpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: 1.0
     });
 
     const gl = renderer.gl;
@@ -211,15 +211,18 @@ const MoltenMetal = ({
     let isVisible = true;
     let isPageVisible = !document.hidden;
     const t0 = performance.now();
+    let lastRenderTime = 0;
 
     const loop = t => {
+      raf = requestAnimationFrame(loop);
+      if (t - lastRenderTime < 16) return; // Throttle to max ~60 FPS
+      lastRenderTime = t;
       program.uniforms.iTime.value = (t - t0) * 0.001;
       currentMouse[0] += 0.05 * (targetMouse[0] - currentMouse[0]);
       currentMouse[1] += 0.05 * (targetMouse[1] - currentMouse[1]);
       program.uniforms.uMouse.value[0] = currentMouse[0];
       program.uniforms.uMouse.value[1] = currentMouse[1];
       renderer.render({ scene: mesh });
-      raf = requestAnimationFrame(loop);
     };
 
     const tryStart = () => {

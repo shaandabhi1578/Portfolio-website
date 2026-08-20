@@ -75,7 +75,7 @@ export const PROJECTS = [
       { step: "UI Layer", desc: "Glassmorphism components & CSS design tokens" },
       { step: "State Tree", desc: "React hooks & modular event handling" }
     ],
-    demoUrl: "https://github.com/shaandabhi1578",
+    demoUrl: "https://shaandabhi.netlify.app",
     githubUrl: "https://github.com/shaandabhi1578",
     featured: true
   }

@@ -92,8 +92,18 @@ export default function Iridescence({ color = [0.44, 0.0, 0.08], speed = 0.8, am
     const mesh = new Mesh(gl, { geometry, program });
     let animateId;
 
+    let isIntersecting = true;
+    const observer = new IntersectionObserver(([entry]) => {
+      isIntersecting = entry.isIntersecting;
+    }, { threshold: 0 });
+    observer.observe(ctn);
+
+    let lastFrame = 0;
     function update(t) {
       animateId = requestAnimationFrame(update);
+      if (!isIntersecting) return;
+      if (t - lastFrame < 16) return;
+      lastFrame = t;
       program.uniforms.uTime.value = t * 0.001;
       renderer.render({ scene: mesh });
     }
@@ -113,6 +123,7 @@ export default function Iridescence({ color = [0.44, 0.0, 0.08], speed = 0.8, am
     }
 
     return () => {
+      observer.disconnect();
       cancelAnimationFrame(animateId);
       window.removeEventListener('resize', resize);
       if (mouseReact) {

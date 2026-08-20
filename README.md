@@ -17,7 +17,7 @@
 
 ## 🌟 Overview
 
-Welcome to the repository for **Shaan Dabhi's Personal Developer Portfolio**. This website is an interactive, high-performance web experience featuring WebGL-powered 3D background visualizers, embedded interactive application playgrounds (such as the **Music Scale Detector** & **DSA Visualizer**), a full-featured interactive CLI terminal, and a glassmorphism design system.
+Welcome to the repository for **Shaan Dabhi's Personal Developer Portfolio**. This website is an interactive, high-performance web experience featuring WebGL-powered 3D background visualizers, embedded interactive application playgrounds (such as the **DSA Visualizer**), a full-featured interactive CLI terminal, and a glassmorphism design system.
 
 - **Live Site:** [shaandabhi.netlify.app](https://shaandabhi.netlify.app)
 - **Portfolio Owner:** Shaan Dabhi
@@ -34,10 +34,6 @@ Welcome to the repository for **Shaan Dabhi's Personal Developer Portfolio**. Th
 - **Grid Distortion & Iridescence:** Dynamic 3D mesh spring distortion powered by `OGL` WebGL renderer.
 - **Gradual Blur Transitions:** Smooth CSS backdrop blur gradient dividers (`GradualBlur`) between content sections.
 - **Particle Text Header:** Interactive canvas text engine responding to hover/pointer inputs.
-
-### 🎵 Interactive Music Scale Detector Demo
-- Interactive web playground demonstrating the logic behind Shaan's signature **C++17 Music Scale Detector** CLI tool.
-- Supports chord normalization, enharmonic spelling, scoring across 24 major & minor diatonic scales, progression analysis (e.g. `I-IV-V-I`), and capo recommendations.
 
 ### ⚡ Data Structures & Algorithms (DSA) Visualizer
 - Step-by-step interactive array algorithm visualizer (Bubble Sort / Linear Search) with real-time execution stats (comparisons, swaps, time elapsed).
@@ -80,7 +76,6 @@ something/
 │   ├── components/             # React UI & WebGL shader components
 │   │   ├── MoltenMetal.jsx     # WebGL2 Fluid Raymarching Shader
 │   │   ├── GridDistortion.jsx  # OGL 3D Mesh Physics Canvas
-│   │   ├── MusicScaleDetectorDemo.jsx # C++ Music Scale Detector Web Playground
 │   │   ├── DSAVisualizer.jsx   # Interactive Array Sorting & Searching Visualizer
 │   │   ├── TerminalWidget.jsx  # Interactive CLI Command Line Terminal
 │   │   ├── Hero.jsx            # Dynamic Hero Section with Particle Effects

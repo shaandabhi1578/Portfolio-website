@@ -5,7 +5,6 @@ import GradualBlur from './components/GradualBlur';
 import IntroSplash from './components/IntroSplash';
 import Hero from './components/Hero';
 import AboutMe from './components/AboutMe';
-import MusicScaleDetectorDemo from './components/MusicScaleDetectorDemo';
 import Projects from './components/Projects';
 import DSAVisualizer from './components/DSAVisualizer';
 import Certifications from './components/Certifications';
@@ -39,9 +38,9 @@ export default function App() {
         color1={activeTheme === 'cyber' ? '#710014' : '#5227FF'}
         color2={activeTheme === 'cyber' ? '#B38F6F' : '#FF9FFC'}
         color3={activeTheme === 'cyber' ? '#F2F1ED' : '#FFFFFF'}
-        speed={0.3}
+        speed={0.25}
         scale={3.5}
-        glow={1.4}
+        glow={1.2}
         mouseInteraction={true}
       />
 
@@ -53,42 +52,37 @@ export default function App() {
         onReplayIntro={handleReplayIntro}
       />
 
-      {/* Main Content Sections with GradualBlur Transitions */}
+      {/* Main Content Sections with Lightweight GradualBlur Transitions */}
       <main style={{ position: 'relative', zIndex: 2 }}>
         <Hero />
 
         <div style={{ position: 'relative' }}>
-          <GradualBlur target="parent" position="top" height="6rem" strength={2} divCount={5} curve="bezier" />
+          <GradualBlur target="parent" position="top" height="4rem" strength={1.2} divCount={2} curve="bezier" />
           <AboutMe />
         </div>
 
         <div style={{ position: 'relative' }}>
-          <GradualBlur target="parent" position="top" height="6rem" strength={2} divCount={5} curve="bezier" />
-          <MusicScaleDetectorDemo />
-        </div>
-
-        <div style={{ position: 'relative' }}>
-          <GradualBlur target="parent" position="top" height="6rem" strength={2} divCount={5} curve="bezier" />
+          <GradualBlur target="parent" position="top" height="4rem" strength={1.2} divCount={2} curve="bezier" />
           <Projects />
         </div>
 
         <div style={{ position: 'relative' }}>
-          <GradualBlur target="parent" position="top" height="6rem" strength={2} divCount={5} curve="bezier" />
+          <GradualBlur target="parent" position="top" height="4rem" strength={1.2} divCount={2} curve="bezier" />
           <DSAVisualizer />
         </div>
 
         <div style={{ position: 'relative' }}>
-          <GradualBlur target="parent" position="top" height="6rem" strength={2} divCount={5} curve="bezier" />
+          <GradualBlur target="parent" position="top" height="4rem" strength={1.2} divCount={2} curve="bezier" />
           <Certifications />
         </div>
 
         <div style={{ position: 'relative' }}>
-          <GradualBlur target="parent" position="top" height="6rem" strength={2} divCount={5} curve="bezier" />
+          <GradualBlur target="parent" position="top" height="4rem" strength={1.2} divCount={2} curve="bezier" />
           <TerminalWidget />
         </div>
 
         <div style={{ position: 'relative' }}>
-          <GradualBlur target="parent" position="top" height="6rem" strength={2} divCount={5} curve="bezier" />
+          <GradualBlur target="parent" position="top" height="4rem" strength={1.2} divCount={2} curve="bezier" />
           <SkillsTimeline />
           <Timeline />
           <ContactSection />

@@ -48,7 +48,7 @@ const GridDistortion = ({ grid = 15, mouse = 0.1, strength = 0.15, relaxation = 
       alpha: true,
       powerPreference: 'high-performance'
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(1.0);
     renderer.setClearColor(0x000000, 0);
     rendererRef.current = renderer;
 
@@ -176,10 +176,22 @@ const GridDistortion = ({ grid = 15, mouse = 0.1, strength = 0.15, relaxation = 
 
     handleResize();
 
-    const animate = () => {
+    let isIntersecting = true;
+    const intersectionObserver = new IntersectionObserver(
+      ([entry]) => {
+        isIntersecting = entry.isIntersecting;
+      },
+      { threshold: 0 }
+    );
+    intersectionObserver.observe(container);
+
+    let lastFrame = 0;
+    const animate = t => {
       animationIdRef.current = requestAnimationFrame(animate);
 
-      if (!renderer || !scene || !camera) return;
+      if (!isIntersecting || !renderer || !scene || !camera) return;
+      if (t - lastFrame < 16) return;
+      lastFrame = t;
 
       uniforms.time.value += 0.05;
 
@@ -209,9 +221,10 @@ const GridDistortion = ({ grid = 15, mouse = 0.1, strength = 0.15, relaxation = 
       renderer.render(scene, camera);
     };
 
-    animate();
+    animate(performance.now());
 
     return () => {
+      intersectionObserver.disconnect();
       if (animationIdRef.current) {
         cancelAnimationFrame(animationIdRef.current);
       }

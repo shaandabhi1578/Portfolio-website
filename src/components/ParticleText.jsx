@@ -13,7 +13,7 @@ export default function ParticleText({
   fontSize = 'clamp(2.5rem, 7vw, 4.5rem)',
   fontWeight = 800,
   fontFamily = 'Syne, sans-serif',
-  glow = true,
+  glow = false,
   style = {}
 }) {
   const canvasRef = useRef(null);
@@ -79,9 +79,21 @@ export default function ParticleText({
     canvas.addEventListener('mousemove', handleMouseMove);
     canvas.addEventListener('mouseleave', handleMouseLeave);
 
+    let isIntersecting = true;
+    const observer = new IntersectionObserver(([entry]) => {
+      isIntersecting = entry.isIntersecting;
+    }, { threshold: 0 });
+    observer.observe(canvas);
+
     let startTime = performance.now();
+    let lastFrame = 0;
 
     const animate = (now) => {
+      animationFrameId = requestAnimationFrame(animate);
+      if (!isIntersecting) return;
+      if (now - lastFrame < 16) return;
+      lastFrame = now;
+
       ctx.clearRect(0, 0, width, height);
 
       const elapsed = now - startTime;
@@ -116,20 +128,14 @@ export default function ParticleText({
         ctx.beginPath();
         ctx.arc(p.x, p.y, particleSize, 0, Math.PI * 2);
         ctx.fillStyle = p.color;
-        if (glow) {
-          ctx.shadowBlur = 8;
-          ctx.shadowColor = p.color;
-        }
         ctx.fill();
-        ctx.shadowBlur = 0;
       });
-
-      animationFrameId = requestAnimationFrame(animate);
     };
 
     animationFrameId = requestAnimationFrame(animate);
 
     return () => {
+      observer.disconnect();
       canvas.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
